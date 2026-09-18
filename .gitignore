@@ -1,0 +1,13 @@
+.venv/
+__pycache__/
+*.pyc
+.env
+.streamlit/secrets.toml
+data/index/
+data/darukaa.db
+.pytest_cache/
+.ruff_cache/
+*.pdf
+data/raw/*.pdf
+.idea/
+.vscode/

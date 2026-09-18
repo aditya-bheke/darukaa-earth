@@ -1,0 +1,440 @@
+# Curated evidence passages. Each passage paraphrases a finding of the cited source
+# (no verbatim copying) and is tagged so retrieval can filter by domain/variable.
+# domains: soil, land_use, biodiversity, climate, human_impact, water
+- id: ev_soc_bands_india
+  source: india_shc
+  domains: [soil]
+  variables: [soil_organic_carbon]
+  text: >
+    Indian soil test ratings (Walkley-Black method) classify soil organic carbon below 0.5% as low,
+    0.5–0.75% as medium and above 0.75% as high. A value of 0.3% is therefore well inside the low class
+    and indicates depleted organic matter, weak aggregation and low biological activity.
+- id: ev_soc_functions
+  source: fao_2017_soc
+  domains: [soil, biodiversity, water]
+  variables: [soil_organic_carbon, soil_moisture, soil_biodiversity]
+  text: >
+    FAO describes soil organic carbon as the main component of soil organic matter, which supplies energy
+    for soil organisms, stabilises aggregates, improves infiltration and water retention, and supplies
+    nutrients. Losing SOC degrades soil biodiversity and soil functions together; restoring it requires
+    sustained increases in carbon inputs (roots, residues, amendments) relative to decomposition.
+- id: ev_soc_temperature
+  source: fao_2017_soc
+  domains: [soil, climate]
+  variables: [soil_organic_carbon, temperature]
+  text: >
+    SOC stocks reflect the balance between inputs and decomposition. Warmer temperatures accelerate microbial
+    decomposition, and in dry climates low plant productivity limits carbon inputs, so hot, dry croplands
+    tend to hold low SOC and gain it slowly. Gains are reversible if management reverts.
+- id: ev_soc_sequestration_lal
+  source: lal_2004
+  domains: [soil, climate]
+  variables: [soil_organic_carbon]
+  text: >
+    Lal (2004) argues that depleted agricultural soils have a large carbon sink capacity and that restoring
+    SOC through practices such as conservation tillage, cover cropping, residue return and agroforestry
+    improves soil quality and food security; he estimates a global soil sequestration potential of roughly
+    0.4–1.2 Gt C per year. Rates are lower in arid and semi-arid regions.
+- id: ev_soc_awc
+  source: minasny_mcbratney_2018
+  domains: [soil, water]
+  variables: [soil_organic_carbon, soil_moisture]
+  text: >
+    A global meta-analysis found that increasing soil organic carbon raises soil water content at field
+    capacity and wilting point, but the net gain in plant-available water capacity is small. SOC increases
+    should therefore not be sold as a drought fix on their own; water-conserving measures (mulch, harvesting)
+    are needed alongside them in water-limited systems.
+- id: ev_soil_degradation_global
+  source: fao_itps_2015
+  domains: [soil, human_impact]
+  variables: [soil_organic_carbon, erosion]
+  text: >
+    The Status of the World's Soil Resources report identifies erosion, organic carbon loss and nutrient
+    imbalance as major threats and finds that about a third of land is moderately to highly degraded.
+    Maintaining vegetative cover is the primary defence against erosion-driven SOC loss.
+- id: ev_soil_biodiversity_multifunctionality
+  source: wagg_2014
+  domains: [soil, biodiversity]
+  variables: [soil_biodiversity, soil_organic_carbon]
+  text: >
+    Experimentally simplifying soil communities reduced multiple ecosystem functions at once, including
+    plant diversity, nutrient cycling and retention, and decomposition. Soil biodiversity is therefore a
+    driver, not just an outcome, of above-ground biodiversity and productivity.
+- id: ev_ph_nutrients
+  source: brady_weil_2017
+  domains: [soil]
+  variables: [soil_ph]
+  text: >
+    Soil pH controls nutrient availability and microbial activity. Strongly acid soils (below about pH 5.5)
+    risk aluminium and manganese toxicity and poor legume nodulation, while strongly alkaline soils (above
+    about pH 8.5) often indicate sodicity, poor structure and low availability of phosphorus and
+    micronutrients. Most crops and soil organisms perform best between roughly pH 6 and 7.5. Liming corrects
+    acidity; gypsum is used to reclaim sodic soils.
+- id: ev_sodicity_gypsum
+  source: fao_ayers_westcot_1985
+  domains: [soil, water]
+  variables: [soil_ph, salinity]
+  text: >
+    FAO guidance on water quality for agriculture explains that sodium-affected soils lose structure and
+    infiltration; calcium amendments such as gypsum, together with leaching and salt-tolerant crops, are the
+    standard reclamation approach. Irrigation water quality must be checked before intensifying irrigation.
+- id: ev_aridity
+  source: unccd_aridity
+  domains: [climate, water]
+  variables: [rainfall, climate_zone]
+  text: >
+    Drylands are classified by the aridity index (precipitation divided by potential evapotranspiration):
+    hyper-arid below 0.05, arid 0.05–0.20, semi-arid 0.20–0.50 and dry sub-humid 0.50–0.65. In semi-arid
+    zones, water rather than nutrients is usually the first limiting factor for plant growth.
+- id: ev_srccl_response_options
+  source: ipcc_srccl_2019
+  domains: [land_use, soil, climate, biodiversity]
+  variables: [land_use, soil_organic_carbon, climate_zone]
+  text: >
+    The IPCC Special Report on Climate Change and Land assesses agroforestry, increased soil organic carbon,
+    improved cropland management and reduced soil erosion as land management response options with
+    co-benefits for adaptation, desertification, land degradation and food security, with few adverse side
+    effects when implemented in a context-appropriate way.
+- id: ev_srccl_drylands
+  source: ipcc_srccl_2019
+  domains: [climate, land_use, water]
+  variables: [rainfall, temperature, climate_zone]
+  text: >
+    The IPCC reports that climate change is exacerbating land degradation and desertification in drylands
+    through more frequent and intense droughts and heat, with water scarcity limiting both crop production
+    and ecosystems. Practices that conserve water and maintain vegetation cover reduce this vulnerability.
+- id: ev_ar6_afolu
+  source: ipcc_ar6_wg3_ch7
+  domains: [land_use, soil, climate]
+  variables: [soil_organic_carbon, land_use]
+  text: >
+    IPCC AR6 identifies soil carbon management in croplands and agroforestry among the agricultural measures
+    with substantial mitigation potential, while noting that sequestration saturates over decades and is
+    reversible, so benefits depend on permanence of management.
+- id: ev_ipbes_drivers
+  source: ipbes_2019
+  domains: [biodiversity, land_use, human_impact]
+  variables: [land_use, species_richness, deforestation, pollution]
+  text: >
+    IPBES ranks land- and sea-use change as the direct driver with the largest relative impact on nature
+    since 1970, followed by direct exploitation, climate change, pollution and invasive species. Around one
+    million species are threatened with extinction.
+- id: ev_ipbes_ldr
+  source: ipbes_2018_ldra
+  domains: [soil, land_use, biodiversity]
+  variables: [land_use, soil_organic_carbon]
+  text: >
+    The IPBES land degradation assessment finds degradation is undermining the well-being of billions of
+    people and that avoiding, reducing and reversing degradation — including through integrated
+    crop-livestock-tree systems and restoration of native vegetation — delivers biodiversity and livelihood
+    benefits that usually outweigh costs.
+- id: ev_ipbes_pollinators
+  source: ipbes_2016_pollinators
+  domains: [biodiversity, human_impact]
+  variables: [pollinators, pollution]
+  text: >
+    IPBES concludes that pollinator declines are driven by land-use change, intensive management and
+    pesticide use (including neonicotinoids at sublethal doses), pathogens and climate change. Diversified
+    farming, flower-rich habitat and reduced pesticide exposure are among the recommended responses.
+- id: ev_fao_biodiv_food
+  source: fao_2019_sowbffa
+  domains: [biodiversity, land_use]
+  variables: [species_richness, crop_diversity]
+  text: >
+    FAO reports that biodiversity for food and agriculture, including pollinators, soil organisms and natural
+    enemies of pests, is declining, and that biodiversity-friendly practices such as agroforestry,
+    diversification and integrated pest management are increasing but remain insufficient.
+- id: ev_poeplau_cover
+  source: poeplau_don_2015
+  domains: [soil]
+  variables: [soil_organic_carbon]
+  text: >
+    A meta-analysis of cover crop trials found an average SOC sequestration rate of 0.32 ± 0.08 Mg C per
+    hectare per year in the topsoil, with the effect continuing for decades before a new equilibrium is
+    reached. Most trials came from temperate, humid regions where water was not the main constraint.
+- id: ev_unger_cover_water
+  source: unger_vigil_1998
+  domains: [water, soil]
+  variables: [soil_moisture, rainfall]
+  text: >
+    In semi-arid and dryland systems, cover crops use stored soil water and can reduce water available to
+    the following cash crop, lowering its yield, unless rainfall is sufficient to recharge the profile.
+    Terminating early or using residue mulch instead can capture the protective benefits with less water use.
+- id: ev_tamburini_diversification
+  source: tamburini_2020
+  domains: [biodiversity, land_use, soil]
+  variables: [crop_diversity, species_richness, soil_organic_carbon, pollinators]
+  text: >
+    A second-order meta-analysis found that agricultural diversification (crop rotation, intercropping,
+    cover crops, field margins, agroforestry, organic amendments) generally enhanced biodiversity,
+    pollination, pest control, nutrient cycling, soil fertility and water regulation, without reducing crop
+    yields in most cases.
+- id: ev_beillouin_diversification
+  source: beillouin_2021
+  domains: [biodiversity, land_use, soil]
+  variables: [crop_diversity, species_richness, soil_organic_carbon]
+  text: >
+    Synthesising many meta-analyses, Beillouin and colleagues found crop diversification strategies had
+    positive average effects on crop production, biodiversity, soil quality and water quality, but effects
+    varied strongly with the strategy and context — so practices must be matched to local conditions.
+- id: ev_mcdaniel_rotation
+  source: mcdaniel_2014
+  domains: [soil, biodiversity]
+  variables: [soil_organic_carbon, soil_biodiversity, crop_diversity]
+  text: >
+    Across rotation experiments, adding crops to a monoculture rotation increased total soil carbon by about
+    3.6%, soil nitrogen by about 5.3% and microbial biomass carbon by about 20.7%; including a cover crop
+    raised soil carbon gains further (about 8.5%).
+- id: ev_yu_intercrop_ler
+  source: yu_2015
+  domains: [land_use]
+  variables: [crop_diversity]
+  text: >
+    A meta-analysis of annual intercrops found an average land equivalent ratio of about 1.2, meaning mixtures
+    produced roughly 20% more per unit land than sole crops, with larger gains when the component crops
+    differed in timing (temporal niche differentiation).
+- id: ev_destefano_af_soc
+  source: destefano_jacobson_2018
+  domains: [soil, land_use]
+  variables: [soil_organic_carbon, land_use]
+  text: >
+    A global meta-analysis of agroforestry found that converting agricultural land to agroforestry increased
+    soil organic carbon stocks, by roughly a quarter in the top 30 cm on average, with larger relative gains
+    at depth; converting forest to agroforestry decreased SOC.
+- id: ev_torralba_af_biodiv
+  source: torralba_2016
+  domains: [biodiversity, land_use]
+  variables: [species_richness, land_use]
+  text: >
+    A meta-analysis of European agroforestry systems found overall higher biodiversity and ecosystem service
+    provision compared with conventional agriculture and forestry, though effects differed among system types.
+- id: ev_garrity_evergreen
+  source: garrity_2010
+  domains: [land_use, soil, climate]
+  variables: [land_use, soil_organic_carbon, rainfall]
+  text: >
+    Evergreen agriculture integrates nitrogen-fixing trees such as Faidherbia albida into cropland. Because
+    Faidherbia sheds leaves in the rainy season (reverse phenology), it adds leaf litter and nitrogen without
+    shading crops during their growing season, and has been associated with higher yields in dryland Africa.
+    The principle — choose native, deep-rooted, drought-adapted nitrogen-fixing trees whose phenology does
+    not compete with crops — transfers to other semi-arid regions.
+- id: ev_pittelkow_ca
+  source: pittelkow_2015
+  domains: [soil, water, climate]
+  variables: [soil_moisture, rainfall, climate_zone]
+  text: >
+    A global meta-analysis found no-till on its own reduces yields on average, but when combined with
+    residue retention and crop rotation it performs best in dry climates, where it can match or exceed
+    conventional tillage yields under rainfed conditions, largely through improved soil water conservation.
+- id: ev_powlson_notill
+  source: powlson_2014
+  domains: [soil, climate]
+  variables: [soil_organic_carbon]
+  text: >
+    Powlson and colleagues caution that much of the apparent SOC increase under no-till reflects
+    redistribution toward the surface rather than net sequestration; the benefits of zero tillage are more
+    robust for erosion control, soil structure and water conservation than for climate mitigation.
+- id: ev_rockstrom_water
+  source: rockstrom_2010
+  domains: [water, land_use, climate]
+  variables: [rainfall, soil_moisture]
+  text: >
+    Rockström and colleagues argue that yield gaps in rainfed semi-arid farming are driven more by poor
+    rainfall partitioning (runoff, evaporation) than by absolute water shortage, and that in-situ water
+    harvesting, runoff capture and supplemental irrigation can substantially increase water productivity.
+- id: ev_davies_ponds
+  source: davies_2008
+  domains: [biodiversity, water]
+  variables: [species_richness, water_availability]
+  text: >
+    In agricultural landscapes, ponds supported more species and more unique species at the regional scale
+    than rivers, streams or ditches, making small water bodies disproportionately valuable for aquatic
+    biodiversity.
+- id: ev_gattinger_organic
+  source: gattinger_2012
+  domains: [soil]
+  variables: [soil_organic_carbon]
+  text: >
+    A meta-analysis comparing organic and non-organic farming found topsoil SOC concentrations about 0.18
+    percentage points higher, stocks about 3.5 Mg C per hectare higher and sequestration rates about
+    0.45 Mg C per hectare per year higher under organic management, driven largely by external organic
+    inputs such as manure and compost.
+- id: ev_jeffery_biochar
+  source: jeffery_2011
+  domains: [soil]
+  variables: [soil_ph, soil_organic_carbon]
+  text: >
+    A meta-analysis found biochar increased crop productivity by about 10% on average, with the largest
+    effects in acidic and neutral-pH soils and coarse-textured soils, consistent with a liming effect and
+    improved water holding; effects in alkaline soils were small.
+- id: ev_haddad_fragmentation
+  source: haddad_2015
+  domains: [biodiversity, land_use]
+  variables: [habitat_fragmentation, species_richness]
+  text: >
+    Haddad and colleagues found that about 70% of remaining forest lies within 1 km of an edge, and that
+    fragmentation experiments show biodiversity reductions of 13–75%, with effects that intensify over time.
+- id: ev_fahrig_habitat_amount
+  source: fahrig_2003
+  domains: [biodiversity, land_use]
+  variables: [habitat_fragmentation, habitat_diversity]
+  text: >
+    Fahrig's review distinguishes habitat loss from fragmentation per se and finds habitat loss has large,
+    consistently negative effects on biodiversity, whereas fragmentation per se has weaker and more variable
+    effects. Increasing the total amount of habitat is the first priority; configuration comes second.
+- id: ev_corridors
+  source: gilbert_norton_2010
+  domains: [biodiversity, land_use]
+  variables: [habitat_fragmentation, species_richness]
+  text: >
+    A meta-analysis of corridor studies found that corridors increased movement between habitat patches by
+    roughly 50% compared with patches not connected by corridors, with natural corridors more effective than
+    artificial ones.
+- id: ev_newbold_landuse
+  source: newbold_2015
+  domains: [biodiversity, land_use, human_impact]
+  variables: [land_use, species_richness, deforestation]
+  text: >
+    Using a global database of local surveys, Newbold and colleagues estimated that land use has reduced
+    local species richness by an average of about 13.6% and total abundance by about 10.7%, with the largest
+    losses in intensively used land such as intensive cropland and urban areas.
+- id: ev_tscharntke_landscape
+  source: tscharntke_2005
+  domains: [biodiversity, land_use]
+  variables: [habitat_diversity, crop_diversity, species_richness]
+  text: >
+    Tscharntke and colleagues show that landscape simplification from agricultural intensification reduces
+    biodiversity and ecosystem services, and that the effectiveness of local farm measures depends on
+    landscape context — they have the largest effect in simple (but not completely cleared) landscapes.
+- id: ev_dainese_landscape
+  source: dainese_2019
+  domains: [biodiversity, land_use]
+  variables: [habitat_diversity, pollinators, species_richness]
+  text: >
+    A global synthesis showed that landscape simplification reduces the richness of pollinators and natural
+    enemies, which in turn reduces pollination and pest control services and crop production; the negative
+    effect operates largely through the loss of species richness.
+- id: ev_garibaldi_wild_pollinators
+  source: garibaldi_2013
+  domains: [biodiversity]
+  variables: [pollinators]
+  text: >
+    Across 41 crop systems, wild insect visitation increased fruit set independently of honeybee visitation,
+    and honeybees did not substitute for wild pollinators, so conserving wild pollinator habitat matters even
+    where managed hives are used.
+- id: ev_garibaldi_20pct
+  source: garibaldi_2021
+  domains: [biodiversity, land_use]
+  variables: [habitat_diversity, land_use]
+  text: >
+    Garibaldi and colleagues argue that working agricultural landscapes need at least about 20% native or
+    semi-natural habitat per square kilometre to sustain pollination, pest control and other contributions
+    of nature, and that this is achievable through margins, hedgerows and small patches.
+- id: ev_ricketts_distance
+  source: ricketts_2008
+  domains: [biodiversity, land_use]
+  variables: [pollinators, habitat_fragmentation]
+  text: >
+    A synthesis of pollination studies found that pollinator richness and visitation rates decline strongly
+    with distance from natural habitat, with visitation rate falling to half of its maximum at roughly 0.6 km.
+- id: ev_albrecht_strips
+  source: albrecht_2020
+  domains: [biodiversity, land_use]
+  variables: [pollinators, habitat_diversity]
+  text: >
+    A quantitative synthesis found that flower strips enhanced pest control in adjacent fields, whereas
+    pollination benefits were more evident for hedgerows and older, more diverse strips; effects on yield
+    were variable, so plantings should be perennial, diverse and native.
+- id: ev_stevens_nitrogen
+  source: stevens_2004
+  domains: [human_impact, biodiversity]
+  variables: [pollution, species_richness]
+  text: >
+    Across British acidic grasslands, plant species richness declined steadily with increasing atmospheric
+    nitrogen deposition, showing that chronic nutrient pollution reduces plant diversity even at moderate
+    loads.
+- id: ev_mayer_buffers
+  source: mayer_2007
+  domains: [human_impact, water, land_use]
+  variables: [pollution, water_quality]
+  text: >
+    A meta-analysis of riparian buffers found they remove substantial nitrogen from runoff and groundwater,
+    with wider buffers generally more effective and subsurface removal less dependent on vegetation type.
+- id: ev_lechenet_pesticides
+  source: lechenet_2017
+  domains: [human_impact, land_use]
+  variables: [pollution]
+  text: >
+    Analysing nearly 1,000 French arable farms, Lechenet and colleagues found low pesticide use rarely
+    reduced productivity or profitability, and estimated that total pesticide use could be cut by 42% without
+    negative effects on either in 59% of farms.
+- id: ev_jackson_water_carbon
+  source: jackson_2005
+  domains: [water, land_use, climate]
+  variables: [water_availability, land_use, rainfall]
+  text: >
+    Jackson and colleagues found that tree plantations reduced stream flow by roughly half on average and
+    caused some streams to dry completely, with eucalypt plantations and drier regions most affected; they
+    also increased soil salinization and acidification in some cases. Carbon-driven tree planting in dry
+    regions therefore trades water for carbon.
+- id: ev_veldman_grassland
+  source: veldman_2015
+  domains: [biodiversity, land_use]
+  variables: [land_use, habitat_diversity, species_richness]
+  text: >
+    Veldman and colleagues warn that planting trees in naturally open ecosystems such as grasslands and
+    savannas destroys their distinctive biodiversity and can reduce water yield and increase fire risk;
+    restoration should match the ecosystem's natural state.
+- id: ev_crouzeilles_regen
+  source: crouzeilles_2017
+  domains: [biodiversity, land_use, human_impact]
+  variables: [deforestation, species_richness]
+  text: >
+    A meta-analysis of tropical forest restoration found that natural regeneration achieved higher success
+    than active restoration (tree planting) for biodiversity and vegetation structure, suggesting assisted
+    natural regeneration is a cost-effective first choice where remnant vegetation and seed sources exist.
+- id: ev_warren_warming
+  source: warren_2018
+  domains: [climate, biodiversity]
+  variables: [temperature, species_richness]
+  text: >
+    Warren and colleagues projected that limiting warming to 1.5°C rather than 2°C roughly halves the
+    proportion of plants and vertebrates, and reduces by about two-thirds the proportion of insects, losing
+    more than half of their climatically determined range.
+- id: ev_guo_acidification
+  source: guo_2010
+  domains: [soil, human_impact]
+  variables: [soil_ph, pollution]
+  text: >
+    Comparing national soil surveys, Guo and colleagues found that topsoil pH in major Chinese croplands
+    declined significantly over about two decades, and attributed the acidification mainly to high
+    nitrogen fertiliser inputs rather than acid rain. Over-application of ammonium-based nitrogen therefore
+    acidifies soils as well as polluting water.
+- id: ev_som_soc_factor
+  source: pribyl_2010
+  domains: [soil]
+  variables: [soil_organic_carbon]
+  text: >
+    Soil organic matter and soil organic carbon are not the same measurement. The conventional factor
+    (organic matter = 1.724 x organic carbon) comes from an assumption of 58% carbon in organic matter;
+    Pribyl's review of published data found a higher median factor, closer to 2, and recommends using 2
+    unless a local factor is known. Reporting organic matter as if it were organic carbon overstates carbon
+    by roughly a factor of two.
+- id: ev_critical_soc_level
+  source: loveland_webb_2003
+  domains: [soil]
+  variables: [soil_organic_carbon]
+  text: >
+    A widely quoted threshold of about 2% organic matter (roughly 1% organic carbon) is often cited as the
+    level below which temperate arable soils degrade. Loveland and Webb reviewed the evidence and found it
+    weak and inconsistent: critical levels depend on soil texture, climate and the function being considered,
+    so a single global threshold should be treated as a rule of thumb, not a boundary.
+- id: ev_bulk_density_ranges
+  source: brady_weil_2017
+  domains: [soil]
+  variables: [soil_organic_carbon, soil_texture]
+  text: >
+    Converting a soil organic carbon concentration (%) into a stock (tonnes of carbon per hectare) requires
+    bulk density and depth. Typical cultivated topsoil bulk densities are about 1.5-1.7 g/cm3 for sandy
+    soils, 1.3-1.5 for loams and 1.1-1.3 for clays, with organic matter lowering density. Coarse soils also
+    hold less organic carbon at equilibrium than fine-textured soils under the same management and climate.

@@ -1,0 +1,403 @@
+# Bibliographic registry. Every citation shown to a user must resolve to an id here.
+# tier: 1 = intergovernmental assessment or meta-analysis, 2 = major synthesis / landmark study,
+#       3 = textbook, guideline or government standard.
+- id: ipcc_srccl_2019
+  title: "Climate Change and Land (Special Report on Climate Change, Desertification, Land Degradation, Sustainable Land Management, Food Security, and Greenhouse Gas Fluxes)"
+  authors: IPCC
+  publisher: Intergovernmental Panel on Climate Change
+  year: 2019
+  type: assessment
+  tier: 1
+  url: https://www.ipcc.ch/srccl/
+- id: ipcc_ar6_wg3_ch7
+  title: "AR6 WGIII Chapter 7: Agriculture, Forestry and Other Land Uses (AFOLU)"
+  authors: Nabuurs et al.
+  publisher: Intergovernmental Panel on Climate Change
+  year: 2022
+  type: assessment
+  tier: 1
+  url: https://www.ipcc.ch/report/ar6/wg3/chapter/chapter-7/
+- id: ipbes_2019
+  title: "Global Assessment Report on Biodiversity and Ecosystem Services"
+  authors: IPBES
+  publisher: IPBES
+  year: 2019
+  type: assessment
+  tier: 1
+  url: https://www.ipbes.net/global-assessment
+- id: ipbes_2016_pollinators
+  title: "Assessment Report on Pollinators, Pollination and Food Production"
+  authors: IPBES
+  publisher: IPBES
+  year: 2016
+  type: assessment
+  tier: 1
+  url: https://www.ipbes.net/assessment-reports/pollinators
+- id: ipbes_2018_ldra
+  title: "Assessment Report on Land Degradation and Restoration"
+  authors: IPBES
+  publisher: IPBES
+  year: 2018
+  type: assessment
+  tier: 1
+  url: https://www.ipbes.net/assessment-reports/ldr
+- id: fao_2017_soc
+  title: "Soil Organic Carbon: the hidden potential"
+  authors: FAO
+  publisher: Food and Agriculture Organization of the United Nations
+  year: 2017
+  type: report
+  tier: 1
+  url: https://www.fao.org/documents/card/en/c/ed16dd3a-4d17-4b3e-a2d6-c6be4ec3e9ab
+- id: fao_itps_2015
+  title: "Status of the World's Soil Resources"
+  authors: FAO & ITPS
+  publisher: Food and Agriculture Organization of the United Nations
+  year: 2015
+  type: report
+  tier: 1
+  url: https://www.fao.org/documents/card/en/c/c6814873-efc3-41db-b7d3-2081a10ede50
+- id: fao_2019_sowbffa
+  title: "The State of the World's Biodiversity for Food and Agriculture"
+  authors: FAO Commission on Genetic Resources for Food and Agriculture
+  publisher: Food and Agriculture Organization of the United Nations
+  year: 2019
+  type: report
+  tier: 1
+  url: https://www.fao.org/state-of-biodiversity-for-food-agriculture/en/
+- id: fao_ayers_westcot_1985
+  title: "Water Quality for Agriculture (FAO Irrigation and Drainage Paper 29 Rev.1)"
+  authors: Ayers, R.S. & Westcot, D.W.
+  publisher: Food and Agriculture Organization of the United Nations
+  year: 1985
+  type: guideline
+  tier: 3
+  url: https://www.fao.org/4/t0234e/t0234e00.htm
+- id: poeplau_don_2015
+  title: "Carbon sequestration in agricultural soils via cultivation of cover crops – A meta-analysis"
+  authors: Poeplau, C. & Don, A.
+  publisher: Agriculture, Ecosystems & Environment 200:33–41
+  year: 2015
+  type: meta-analysis
+  tier: 1
+  url: https://doi.org/10.1016/j.agee.2014.10.024
+- id: tamburini_2020
+  title: "Agricultural diversification promotes multiple ecosystem services without compromising yield"
+  authors: Tamburini, G. et al.
+  publisher: Science Advances 6:eaba1715
+  year: 2020
+  type: meta-analysis
+  tier: 1
+  url: https://doi.org/10.1126/sciadv.aba1715
+- id: beillouin_2021
+  title: "Positive but variable effects of crop diversification on biodiversity and ecosystem services"
+  authors: Beillouin, D. et al.
+  publisher: Global Change Biology 27:4697–4710
+  year: 2021
+  type: meta-analysis
+  tier: 1
+  url: https://doi.org/10.1111/gcb.15747
+- id: mcdaniel_2014
+  title: "Does agricultural crop diversity enhance soil microbial biomass and organic matter dynamics? A meta-analysis"
+  authors: McDaniel, M.D., Tiemann, L.K. & Grandy, A.S.
+  publisher: Ecological Applications 24:560–570
+  year: 2014
+  type: meta-analysis
+  tier: 1
+  url: https://doi.org/10.1890/13-0616.1
+- id: yu_2015
+  title: "Temporal niche differentiation increases the land equivalent ratio of annual intercrops: A meta-analysis"
+  authors: Yu, Y., Stomph, T.-J., Makowski, D. & van der Werf, W.
+  publisher: Field Crops Research 184:133–144
+  year: 2015
+  type: meta-analysis
+  tier: 1
+  url: https://doi.org/10.1016/j.fcr.2015.09.010
+- id: haddad_2015
+  title: "Habitat fragmentation and its lasting impact on Earth's ecosystems"
+  authors: Haddad, N.M. et al.
+  publisher: Science Advances 1:e1500052
+  year: 2015
+  type: synthesis
+  tier: 1
+  url: https://doi.org/10.1126/sciadv.1500052
+- id: fahrig_2003
+  title: "Effects of habitat fragmentation on biodiversity"
+  authors: Fahrig, L.
+  publisher: Annual Review of Ecology, Evolution, and Systematics 34:487–515
+  year: 2003
+  type: review
+  tier: 2
+  url: https://doi.org/10.1146/annurev.ecolsys.34.011802.132419
+- id: gilbert_norton_2010
+  title: "A meta-analytic review of corridor effectiveness"
+  authors: Gilbert-Norton, L., Wilson, R., Stevens, J.R. & Beard, K.H.
+  publisher: Conservation Biology 24:660–668
+  year: 2010
+  type: meta-analysis
+  tier: 1
+  url: https://doi.org/10.1111/j.1523-1739.2010.01450.x
+- id: newbold_2015
+  title: "Global effects of land use on local terrestrial biodiversity"
+  authors: Newbold, T. et al.
+  publisher: Nature 520:45–50
+  year: 2015
+  type: synthesis
+  tier: 1
+  url: https://doi.org/10.1038/nature14324
+- id: tscharntke_2005
+  title: "Landscape perspectives on agricultural intensification and biodiversity – ecosystem service management"
+  authors: Tscharntke, T. et al.
+  publisher: Ecology Letters 8:857–874
+  year: 2005
+  type: review
+  tier: 2
+  url: https://doi.org/10.1111/j.1461-0248.2005.00782.x
+- id: dainese_2019
+  title: "A global synthesis reveals biodiversity-mediated benefits for crop production"
+  authors: Dainese, M. et al.
+  publisher: Science Advances 5:eaax0121
+  year: 2019
+  type: synthesis
+  tier: 1
+  url: https://doi.org/10.1126/sciadv.aax0121
+- id: garibaldi_2013
+  title: "Wild pollinators enhance fruit set of crops regardless of honey bee abundance"
+  authors: Garibaldi, L.A. et al.
+  publisher: Science 339:1608–1611
+  year: 2013
+  type: synthesis
+  tier: 1
+  url: https://doi.org/10.1126/science.1230200
+- id: garibaldi_2021
+  title: "Working landscapes need at least 20% native habitat"
+  authors: Garibaldi, L.A. et al.
+  publisher: Conservation Letters 14:e12773
+  year: 2021
+  type: synthesis
+  tier: 2
+  url: https://doi.org/10.1111/conl.12773
+- id: ricketts_2008
+  title: "Landscape effects on crop pollination services: are there general patterns?"
+  authors: Ricketts, T.H. et al.
+  publisher: Ecology Letters 11:499–515
+  year: 2008
+  type: meta-analysis
+  tier: 1
+  url: https://doi.org/10.1111/j.1461-0248.2008.01157.x
+- id: albrecht_2020
+  title: "The effectiveness of flower strips and hedgerows on pest control, pollination services and crop yield: a quantitative synthesis"
+  authors: Albrecht, M. et al.
+  publisher: Ecology Letters 23:1488–1498
+  year: 2020
+  type: meta-analysis
+  tier: 1
+  url: https://doi.org/10.1111/ele.13576
+- id: torralba_2016
+  title: "Do European agroforestry systems enhance biodiversity and ecosystem services? A meta-analysis"
+  authors: Torralba, M., Fagerholm, N., Burgess, P.J., Moreno, G. & Plieninger, T.
+  publisher: Agriculture, Ecosystems & Environment 230:150–161
+  year: 2016
+  type: meta-analysis
+  tier: 1
+  url: https://doi.org/10.1016/j.agee.2016.06.002
+- id: destefano_jacobson_2018
+  title: "Soil carbon sequestration in agroforestry systems: a meta-analysis"
+  authors: De Stefano, A. & Jacobson, M.G.
+  publisher: Agroforestry Systems 92:285–299
+  year: 2018
+  type: meta-analysis
+  tier: 1
+  url: https://doi.org/10.1007/s10457-017-0147-9
+- id: garrity_2010
+  title: "Evergreen Agriculture: a robust approach to sustainable food security in Africa"
+  authors: Garrity, D.P. et al.
+  publisher: Food Security 2:197–214
+  year: 2010
+  type: review
+  tier: 2
+  url: https://doi.org/10.1007/s12571-010-0070-7
+- id: pittelkow_2015
+  title: "Productivity limits and potentials of the principles of conservation agriculture"
+  authors: Pittelkow, C.M. et al.
+  publisher: Nature 517:365–368
+  year: 2015
+  type: meta-analysis
+  tier: 1
+  url: https://doi.org/10.1038/nature13809
+- id: powlson_2014
+  title: "Limited potential of no-till agriculture for climate change mitigation"
+  authors: Powlson, D.S. et al.
+  publisher: Nature Climate Change 4:678–683
+  year: 2014
+  type: review
+  tier: 2
+  url: https://doi.org/10.1038/nclimate2292
+- id: unger_vigil_1998
+  title: "Cover crop effects on soil water relationships"
+  authors: Unger, P.W. & Vigil, M.F.
+  publisher: Journal of Soil and Water Conservation 53:200–207
+  year: 1998
+  type: review
+  tier: 2
+  url: https://www.jswconline.org/content/53/3/200
+- id: rockstrom_2010
+  title: "Managing water in rainfed agriculture — The need for a paradigm shift"
+  authors: Rockström, J. et al.
+  publisher: Agricultural Water Management 97:543–550
+  year: 2010
+  type: review
+  tier: 2
+  url: https://doi.org/10.1016/j.agwat.2009.09.009
+- id: davies_2008
+  title: "Comparative biodiversity of aquatic habitats in the European agricultural landscape"
+  authors: Davies, B. et al.
+  publisher: Agriculture, Ecosystems & Environment 125:1–8
+  year: 2008
+  type: study
+  tier: 2
+  url: https://doi.org/10.1016/j.agee.2007.10.006
+- id: gattinger_2012
+  title: "Enhanced top soil carbon stocks under organic farming"
+  authors: Gattinger, A. et al.
+  publisher: PNAS 109:18226–18231
+  year: 2012
+  type: meta-analysis
+  tier: 1
+  url: https://doi.org/10.1073/pnas.1209429109
+- id: jeffery_2011
+  title: "A quantitative review of the effects of biochar application to soils on crop productivity using meta-analysis"
+  authors: Jeffery, S., Verheijen, F.G.A., van der Velde, M. & Bastos, A.C.
+  publisher: Agriculture, Ecosystems & Environment 144:175–187
+  year: 2011
+  type: meta-analysis
+  tier: 1
+  url: https://doi.org/10.1016/j.agee.2011.08.015
+- id: brady_weil_2017
+  title: "The Nature and Properties of Soils (15th ed.)"
+  authors: Weil, R.R. & Brady, N.C.
+  publisher: Pearson
+  year: 2017
+  type: textbook
+  tier: 3
+  url: https://www.pearson.com/
+- id: minasny_mcbratney_2018
+  title: "Limited effect of organic matter on soil available water capacity"
+  authors: Minasny, B. & McBratney, A.B.
+  publisher: European Journal of Soil Science 69:39–47
+  year: 2018
+  type: meta-analysis
+  tier: 1
+  url: https://doi.org/10.1111/ejss.12475
+- id: wagg_2014
+  title: "Soil biodiversity and soil community composition determine ecosystem multifunctionality"
+  authors: Wagg, C., Bender, S.F., Widmer, F. & van der Heijden, M.G.A.
+  publisher: PNAS 111:5266–5270
+  year: 2014
+  type: study
+  tier: 2
+  url: https://doi.org/10.1073/pnas.1320054111
+- id: stevens_2004
+  title: "Impact of nitrogen deposition on the species richness of grasslands"
+  authors: Stevens, C.J., Dise, N.B., Mountford, J.O. & Gowing, D.J.
+  publisher: Science 303:1876–1879
+  year: 2004
+  type: study
+  tier: 2
+  url: https://doi.org/10.1126/science.1094678
+- id: lechenet_2017
+  title: "Reducing pesticide use while preserving crop productivity and profitability on arable farms"
+  authors: Lechenet, M., Dessaint, F., Py, G., Makowski, D. & Munier-Jolain, N.
+  publisher: Nature Plants 3:17008
+  year: 2017
+  type: study
+  tier: 2
+  url: https://doi.org/10.1038/nplants.2017.8
+- id: mayer_2007
+  title: "Meta-analysis of nitrogen removal in riparian buffers"
+  authors: Mayer, P.M., Reynolds, S.K., McCutchen, M.D. & Canfield, T.J.
+  publisher: Journal of Environmental Quality 36:1172–1180
+  year: 2007
+  type: meta-analysis
+  tier: 1
+  url: https://doi.org/10.2134/jeq2006.0462
+- id: jackson_2005
+  title: "Trading water for carbon with biological carbon sequestration"
+  authors: Jackson, R.B. et al.
+  publisher: Science 310:1944–1947
+  year: 2005
+  type: synthesis
+  tier: 1
+  url: https://doi.org/10.1126/science.1119282
+- id: veldman_2015
+  title: "Where tree planting and forest expansion are bad for biodiversity and ecosystem services"
+  authors: Veldman, J.W. et al.
+  publisher: BioScience 65:1011–1018
+  year: 2015
+  type: review
+  tier: 2
+  url: https://doi.org/10.1093/biosci/biv118
+- id: crouzeilles_2017
+  title: "Ecological restoration success is higher for natural regeneration than for active restoration in tropical forests"
+  authors: Crouzeilles, R. et al.
+  publisher: Science Advances 3:e1701345
+  year: 2017
+  type: meta-analysis
+  tier: 1
+  url: https://doi.org/10.1126/sciadv.1701345
+- id: warren_2018
+  title: "The projected effect on insects, vertebrates, and plants of limiting global warming to 1.5°C rather than 2°C"
+  authors: Warren, R., Price, J., Graham, E., Forstenhaeusler, N. & VanDerWal, J.
+  publisher: Science 360:791–795
+  year: 2018
+  type: study
+  tier: 2
+  url: https://doi.org/10.1126/science.aar3646
+- id: lal_2004
+  title: "Soil carbon sequestration impacts on global climate change and food security"
+  authors: Lal, R.
+  publisher: Science 304:1623–1627
+  year: 2004
+  type: review
+  tier: 2
+  url: https://doi.org/10.1126/science.1097396
+- id: india_shc
+  title: "Soil Health Card Scheme — soil test rating limits (organic carbon, pH)"
+  authors: Department of Agriculture & Farmers Welfare
+  publisher: Government of India
+  year: 2015
+  type: guideline
+  tier: 3
+  url: https://soilhealth.dac.gov.in/
+- id: unccd_aridity
+  title: "Aridity index classification of drylands (P/PET), World Atlas of Desertification"
+  authors: UNEP / UNCCD / JRC
+  publisher: United Nations
+  year: 2018
+  type: guideline
+  tier: 3
+  url: https://wad.jrc.ec.europa.eu/
+- id: guo_2010
+  title: "Significant acidification in major Chinese croplands"
+  authors: Guo, J.H. et al.
+  publisher: Science 327:1008–1010
+  year: 2010
+  type: study
+  tier: 2
+  url: https://doi.org/10.1126/science.1182570
+- id: pribyl_2010
+  title: "A critical review of the conventional SOC to SOM conversion factor"
+  authors: Pribyl, D.W.
+  publisher: Geoderma 156:75–83
+  year: 2010
+  type: review
+  tier: 2
+  url: https://doi.org/10.1016/j.geoderma.2010.02.003
+- id: loveland_webb_2003
+  title: "Is there a critical level of organic matter in the agricultural soils of temperate regions: a review?"
+  authors: Loveland, P. & Webb, J.
+  publisher: Soil and Tillage Research 70:1–18
+  year: 2003
+  type: review
+  tier: 2
+  url: https://doi.org/10.1016/S0167-1987(02)00139-3

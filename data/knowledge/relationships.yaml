@@ -1,0 +1,22 @@
+# Variable interaction graph used for multi-metric reasoning.
+# sign: + (increase in `from` increases `to`) or - (increase in `from` decreases `to`)
+- {from: soil_organic_carbon, to: soil_biodiversity, sign: "+", evidence: ev_soc_functions, mechanism: "SOC is the energy source for soil organisms"}
+- {from: soil_organic_carbon, to: soil_moisture, sign: "+", evidence: ev_soc_awc, mechanism: "organic matter raises water retention (modest net effect on available water)"}
+- {from: soil_biodiversity, to: species_richness, sign: "+", evidence: ev_soil_biodiversity_multifunctionality, mechanism: "soil communities drive plant diversity and nutrient cycling"}
+- {from: soil_moisture, to: soil_organic_carbon, sign: "+", evidence: ev_soc_temperature, mechanism: "water limits plant productivity and therefore carbon inputs"}
+- {from: rainfall, to: soil_moisture, sign: "+", evidence: ev_rockstrom_water, mechanism: "rainfall partitioning determines plant-available water"}
+- {from: water_availability, to: species_richness, sign: "+", evidence: ev_srccl_drylands, mechanism: "water scarcity limits ecosystems and species survival in drylands"}
+- {from: temperature, to: soil_organic_carbon, sign: "-", evidence: ev_soc_temperature, mechanism: "warming accelerates decomposition"}
+- {from: temperature, to: species_richness, sign: "-", evidence: ev_warren_warming, mechanism: "warming shrinks species' climatic ranges"}
+- {from: soil_ph, to: soil_biodiversity, sign: "±", evidence: ev_ph_nutrients, mechanism: "extreme pH suppresses microbes, nodulation and nutrient availability"}
+- {from: land_use, to: habitat_fragmentation, sign: "+", evidence: ev_newbold_landuse, mechanism: "intensive land use removes and divides habitat"}
+- {from: habitat_fragmentation, to: species_richness, sign: "-", evidence: ev_haddad_fragmentation, mechanism: "isolation and edge effects erode biodiversity over time"}
+- {from: habitat_diversity, to: pollinators, sign: "+", evidence: ev_dainese_landscape, mechanism: "semi-natural habitat sustains pollinators and natural enemies"}
+- {from: crop_diversity, to: soil_biodiversity, sign: "+", evidence: ev_mcdaniel_rotation, mechanism: "diverse residues and roots raise microbial biomass"}
+- {from: crop_diversity, to: species_richness, sign: "+", evidence: ev_tamburini_diversification, mechanism: "diversification supports above-ground biodiversity"}
+- {from: pollution, to: pollinators, sign: "-", evidence: ev_ipbes_pollinators, mechanism: "pesticide exposure harms pollinators"}
+- {from: pollution, to: species_richness, sign: "-", evidence: ev_stevens_nitrogen, mechanism: "nitrogen enrichment reduces plant diversity"}
+- {from: deforestation, to: species_richness, sign: "-", evidence: ev_newbold_landuse, mechanism: "habitat loss reduces local richness"}
+- {from: erosion, to: soil_organic_carbon, sign: "-", evidence: ev_soil_degradation_global, mechanism: "erosion strips carbon-rich topsoil"}
+- {from: pollinators, to: crop_yield, sign: "+", evidence: ev_garibaldi_wild_pollinators, mechanism: "wild pollinators raise fruit set"}
+- {from: pollution, to: soil_ph, sign: "-", evidence: ev_guo_acidification, mechanism: "excess ammonium nitrogen fertiliser acidifies soil"}

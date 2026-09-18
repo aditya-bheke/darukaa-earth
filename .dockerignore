@@ -1,0 +1,10 @@
+.venv
+.git
+.env
+data/index
+data/darukaa.db
+__pycache__
+*.pyc
+.ruff_cache
+.pytest_cache
+*.pdf

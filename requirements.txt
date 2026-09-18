@@ -1,0 +1,12 @@
+streamlit>=1.36
+pydantic>=2.6
+pyyaml>=6.0
+numpy>=1.26
+rank-bm25>=0.2.2
+fastembed>=0.3.6
+openai>=1.40
+pypdf>=4.2
+requests>=2.31
+python-dotenv>=1.0
+fastapi>=0.110
+uvicorn>=0.29

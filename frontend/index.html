@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>Darukaa.Earth — AI Environmental Scientist</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌱</text></svg>">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- ── translucent top chrome (content scrolls underneath) ─────────────── -->
+<header class="chrome" id="chrome">
+  <div class="chrome-row">
+    <div class="brand">
+      <span class="mark" aria-hidden="true">🌱</span>
+      <span class="brand-text">
+        <b>Darukaa.Earth</b>
+        <span class="status" id="status">
+          <span class="dot" id="llm-dot" aria-hidden="true"></span>
+          <span id="llm-label">connecting…</span>
+          <span class="sep" aria-hidden="true">·</span>
+          <button type="button" class="linkish" id="kb-stats" title="Open the knowledge base">knowledge base</button>
+        </span>
+        <span class="thread-title" id="thread-title" hidden></span>
+      </span>
+    </div>
+    <div class="chrome-actions">
+    <button class="icon-btn" id="btn-new" aria-label="New conversation" title="New conversation">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+    </button>
+    <button class="icon-btn" id="btn-profile" aria-label="Conversation history" title="Conversation history">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 18h16M4 12h16M4 6h16"/></svg>
+    </button>
+    </div>
+  </div>
+  <nav class="segmented" role="tablist" aria-label="Sections">
+    <span class="seg-indicator" id="seg-indicator" aria-hidden="true"></span>
+    <button role="tab" aria-selected="true" data-view="consult" title="Diagnose a site and get recommendations">
+      <span class="seg-ico" aria-hidden="true">◎</span>Consult</button>
+    <button role="tab" aria-selected="false" data-view="knowledge" title="The evidence every recommendation resolves to">
+      <span class="seg-ico" aria-hidden="true">≣</span>Knowledge</button>
+    <button role="tab" aria-selected="false" data-view="method" title="How the engine reasons, and what the LLM is not allowed to decide">
+      <span class="seg-ico" aria-hidden="true">⚙</span>Method</button>
+  </nav>
+  <div class="profile-strip" id="profile-strip" hidden></div>
+</header>
+
+<main id="scroll">
+  <!-- ── consult ──────────────────────────────────────────────────────── -->
+  <section class="view" id="view-consult">
+    <div class="hero" id="hero">
+      <p class="eyebrow">AI environmental scientist</p>
+      <h1>Evidence-backed advice for living land</h1>
+      <p class="lede">Describe a site in words, structured data or coordinates. Soil, water, land use and
+        biodiversity are diagnosed together — then sequenced, cited interventions, with a plan to verify they work.</p>
+      <div class="hero-actions">
+        <button class="btn primary" id="btn-site-data">Enter site data</button>
+        <button class="btn" id="btn-location">Use coordinates</button>
+      </div>
+    </div>
+
+    <div class="examples" id="examples" aria-label="Examples"></div>
+    <div class="thread" id="thread" aria-live="polite"></div>
+  </section>
+
+  <!-- ── knowledge ────────────────────────────────────────────────────── -->
+  <section class="view" id="view-knowledge" hidden>
+    <h2 class="view-title">Knowledge base</h2>
+    <p class="view-sub">Every recommendation resolves to a passage in here. Search it the way the engine does —
+      dense embeddings and BM25, fused.</p>
+    <div class="search-row">
+      <input id="kb-q" type="search" placeholder="e.g. cover crops soil water semi-arid" autocomplete="off">
+      <button class="btn primary" id="kb-go">Search</button>
+    </div>
+    <div id="kb-results" class="stack"></div>
+    <h3 class="group-title">Practices</h3>
+    <div id="kb-practices" class="stack"></div>
+  </section>
+
+  <!-- ── method ───────────────────────────────────────────────────────── -->
+  <section class="view" id="view-method" hidden>
+    <h2 class="view-title">How it reasons</h2>
+    <p class="view-sub">The language model never chooses a practice or a number. A structured knowledge base and a
+      rule engine do that; the model only explains the result, and a verifier deletes anything unsupported.</p>
+    <ol class="method" id="method-list"></ol>
+  </section>
+</main>
+
+<!-- ── composer (translucent bottom chrome) ───────────────────────────── -->
+<form class="composer" id="composer">
+  <button type="button" class="icon-btn" id="btn-attach" aria-label="Add site data">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+  </button>
+  <input id="prompt" type="text" autocomplete="off" enterkeyhint="send"
+         placeholder="Soil carbon 0.3%, low rainfall, wheat monoculture, semi-arid…">
+  <button type="submit" class="icon-btn send" id="btn-send" aria-label="Send">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+  </button>
+</form>
+
+<!-- ── sheet (draggable, spring-driven) ───────────────────────────────── -->
+<div class="scrim" id="scrim" hidden></div>
+<section class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="sheet-title" hidden>
+  <div class="sheet-grabber" id="sheet-grab"><span></span></div>
+  <div class="sheet-head">
+    <h2 id="sheet-title">Detail</h2>
+    <button class="icon-btn" id="sheet-close" aria-label="Close">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+  </div>
+  <div class="sheet-body" id="sheet-body"></div>
+</section>
+
+<div class="toast" id="toast" hidden></div>
+
+<script src="app.js" type="module"></script>
+</body>
+</html>

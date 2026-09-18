@@ -1,0 +1,21 @@
+# Render blueprint: one web service serving the REST API and the single-page front end.
+# Set GROQ_API_KEY in the Render dashboard (marked sync: false so it is never committed).
+services:
+  - type: web
+    name: darukaa-earth
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt && LLM_PROVIDER=none python -m darukaa.kb.build
+    startCommand: uvicorn api:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /health
+    envVars:
+      - key: PYTHON_VERSION
+        value: "3.11"
+      - key: LLM_PROVIDER
+        value: groq
+      - key: LLM_MODEL
+        value: openai/gpt-oss-120b
+      - key: FASTEMBED_CACHE_PATH
+        value: /tmp/fastembed
+      - key: GROQ_API_KEY
+        sync: false

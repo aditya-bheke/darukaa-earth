@@ -1,0 +1,105 @@
+# Behavioural evaluation scenarios. Each scenario is a multi-turn conversation; expectations are
+# checked on the response to the LAST turn unless a turn carries its own `expect`.
+- name: challenge_example_json
+  description: The exact example from the challenge brief, sent as structured JSON.
+  turns:
+    - json: {soil_organic_carbon: "0.3%", rainfall: low, crop: monoculture wheat, region: semi-arid}
+  expect:
+    type: recommendations
+    codes: [SOC_VERY_LOW, WATER_LIMITED, MONOCULTURE]
+    include_any: [dryland_agroforestry, legume_intercrop_rotation]
+    include_all: [dryland_agroforestry, legume_intercrop_rotation]
+    exclude: [cover_crops]
+    first: [conservation_ag_mulch, in_situ_water_harvesting]
+
+- name: vague_input_asks_questions
+  description: The challenge's clarification example.
+  turns:
+    - text: Biodiversity is declining on my land
+  expect:
+    type: clarification
+    questions_mention: [organic carbon, rainfall, land use]
+
+- name: multi_turn_memory_and_followup
+  turns:
+    - text: Biodiversity is declining on my land
+      expect: {type: clarification}
+    - text: Soil organic carbon is 0.3%, rainfall is low, it's a monoculture wheat farm in a semi-arid region
+      expect: {type: recommendations, profile_has: [species_richness_trend, soil_organic_carbon_pct]}
+    - text: Why not cover crops?
+  expect:
+    type: answer
+    message_mentions: [water]
+
+- name: acidic_humid_cotton
+  turns:
+    - text: Acidic soil, pH 4.8, humid climate, cotton monoculture with heavy fertilizer use
+  expect:
+    type: recommendations
+    codes: [PH_ACIDIC, MONOCULTURE, NUTRIENT_POLLUTION]
+    include_all: [lime_or_biochar_acidic, nutrient_buffers]
+    exclude: [gypsum_sodic]
+
+- name: deforested_fragmented_pesticides
+  turns:
+    - text: We cleared part of a forest patch for maize; the remaining woodland is fragmented and we spray pesticides. Bees are fewer. Rainfall is moderate.
+  expect:
+    type: recommendations
+    codes: [DEFORESTATION, FRAGMENTED, PESTICIDE, POLLINATOR_DECLINE]
+    include_any: [habitat_corridors, ipm_pesticide_reduction, native_flower_margins]
+
+- name: dry_grassland_not_afforested
+  turns:
+    - json: {land_use: grassland, climate_zone: semi-arid, species_richness_trend: declining, habitat_diversity: low}
+  expect:
+    type: recommendations
+    codes: [OPEN_ECOSYSTEM, WATER_LIMITED]
+    include_all: [restore_open_ecosystem]
+    exclude: [dryland_agroforestry, assisted_natural_regeneration]
+
+- name: sodic_soil
+  turns:
+    - text: Our cropland has pH 9.2, low rainfall around 400 mm, soil organic carbon 0.4%
+  expect:
+    type: recommendations
+    codes: [PH_ALKALINE, WATER_LIMITED, SOC_VERY_LOW]
+    include_all: [gypsum_sodic]
+    exclude: [lime_or_biochar_acidic]
+
+- name: user_skips_questions
+  turns:
+    - text: Biodiversity is declining on my wheat farm
+      expect: {type: clarification}
+    - text: not sure, just recommend something
+  expect:
+    type: recommendations
+    assumption_mentions: [confidence]
+
+- name: update_changes_advice
+  turns:
+    - text: Soil organic carbon 0.4%, rainfall is low, maize monoculture, temperate
+      expect: {type: recommendations, codes: [WATER_LIMITED]}
+    - text: Actually rainfall is high, about 1200 mm
+  expect:
+    type: recommendations
+    not_codes: [WATER_LIMITED]
+    assumption_mentions: [Updated]
+
+- name: humid_maize_cover_crops
+  turns:
+    - text: Maize monoculture in a humid temperate region, 900 mm rainfall, soil organic carbon 0.6%, erosion on slopes
+  expect:
+    type: recommendations
+    include_any: [cover_crops, legume_intercrop_rotation]
+    not_codes: [WATER_LIMITED]
+
+- name: demo_rainfall_update_in_semi_arid
+  description: Demo step 4 — a measured high rainfall overrides the regional 'semi-arid' label.
+  turns:
+    - text: SOC is 0.3%, we get about 350 mm rain, only wheat every year, semi-arid
+      expect: {type: recommendations, codes: [WATER_LIMITED]}
+    - text: Actually rainfall is about 1200 mm
+  expect:
+    type: recommendations
+    not_codes: [WATER_LIMITED]
+    assumption_mentions: [Updated]

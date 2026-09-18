@@ -1,0 +1,10 @@
+{
+  "soil_ph": 4.8,
+  "soil_organic_carbon_pct": 0.6,
+  "climate_zone": "humid",
+  "land_use": "cropland",
+  "crop": "cotton",
+  "cropping_system": "monoculture",
+  "pollution": ["fertilizer", "pesticide"],
+  "pollinator_trend": "declining"
+}

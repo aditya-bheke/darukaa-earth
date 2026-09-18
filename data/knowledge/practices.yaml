@@ -1,0 +1,611 @@
+# Structured intervention knowledge. Each practice lists the diagnosed issues it addresses
+# (with weights 1-3), the site conditions it suits, context-specific adaptations, and quantified
+# effects that each point to an evidence passage (evidence.yaml) and source (sources.yaml).
+# Issue codes are produced by darukaa/reasoning/diagnosis.py.
+
+- id: dryland_agroforestry
+  name: Native nitrogen-fixing trees on field boundaries and bunds (dryland agroforestry)
+  action: >
+    Plant a low-density line of native, deep-rooted, drought-adapted nitrogen-fixing trees along field
+    boundaries and bunds (e.g. Prosopis cineraria / khejri in north-west Indian drylands, Faidherbia albida
+    in the Sahel), keeping the cropped area open. Prefer species whose leaf flush does not coincide with the
+    crop season so shading and water competition are minimised.
+  addresses: {SOC_VERY_LOW: 3, SOC_LOW: 2, MONOCULTURE: 2, LOW_HABITAT: 3, HEAT_STRESS: 2, WATER_LIMITED: 1, BIODIVERSITY_DECLINE: 3, EROSION: 2}
+  suits:
+    land_uses: [cropland, fallow, degraded]
+  avoid_when: [OPEN_ECOSYSTEM]
+  mechanism: >
+    Trees add perennial root and litter carbon inputs that annual crops on low-SOC soil cannot supply
+    (soil carbon ↑), fix nitrogen and shade the soil surface, lowering soil temperature and evaporation
+    (soil moisture ↑ under canopy). Boundary trees create vertical structure, nesting sites and shelter in an
+    otherwise uniform field, raising habitat diversity for birds and insects, which in turn supports
+    pollination and pest control.
+  variables_linked: [soil_organic_carbon, soil_moisture, temperature, habitat_diversity, pollinators, land_use]
+  adaptations:
+    WATER_LIMITED: >
+      Use drought-tolerant native species only, plant at the start of the monsoon/rainy season with a
+      micro-catchment around each sapling, and keep density low; avoid water-hungry exotics (see 'avoid
+      eucalyptus-type plantations').
+  monitoring:
+    - {indicator: "sapling survival", method: "Count surviving trees along each boundary", frequency: "every 6 months for 3 years"}
+    - {indicator: "soil organic carbon", method: "Lab soil test (Walkley-Black or dry combustion), 0–30 cm, same season and sampling points each time", frequency: "every 2–3 years"}
+    - {indicator: "species richness (birds, butterflies)", method: "Fixed-route transect counts, same route, time of day and season", frequency: "twice a year"}
+  projection:
+    metric: soil_organic_carbon
+    kind: relative_pct
+    low: 15
+    high: 35
+    years: 10
+    evidence: ev_destefano_af_soc
+    caveat: "meta-analysis mean was ~25% at 0–30 cm; the range here spans typical study variation"
+  effects:
+    - metric: soil_organic_carbon
+      direction: increase
+      estimate: "~25% higher SOC stock in 0–30 cm on average after converting cropland to agroforestry (global meta-analysis)"
+      horizon: long
+      evidence: ev_destefano_af_soc
+    - metric: species_richness
+      direction: increase
+      estimate: "Higher overall biodiversity and ecosystem services than conventional agriculture (meta-analysis; effect varies by system)"
+      horizon: medium
+      evidence: ev_torralba_af_biodiv
+    - metric: soil_moisture
+      direction: increase
+      estimate: "Reverse-phenology N-fixing trees add litter and N without competing with the crop season (qualitative)"
+      horizon: medium
+      evidence: ev_garrity_evergreen
+  tradeoffs:
+    - "Tree roots can compete with crops for water in very dry years; site trees on boundaries, not inside the field."
+    - "Benefits to soil carbon take years to accumulate; survival of saplings is the key early risk."
+
+- id: legume_intercrop_rotation
+  name: Break the monoculture with a legume intercrop or rotation
+  action: >
+    Replace continuous single-crop cropping with a rotation or strip intercrop that includes a
+    drought-tolerant grain legume matched to the season (e.g. chickpea or lentil in a wheat rotation;
+    pigeonpea, cluster bean or moth bean with pearl millet in kharif). Stagger sowing dates so the two crops
+    peak at different times.
+  addresses: {MONOCULTURE: 3, SOC_VERY_LOW: 2, SOC_LOW: 2, BIODIVERSITY_DECLINE: 2, NUTRIENT_POLLUTION: 1, POLLINATOR_DECLINE: 1}
+  suits:
+    land_uses: [cropland]
+  avoid_when: []
+  mechanism: >
+    Adding crop species diversifies root exudates and residue quality, which raises microbial biomass and
+    soil carbon (soil ↔ biodiversity link). Legumes fix nitrogen, so synthetic N — and N runoff — can be
+    reduced. Staggered, temporally complementary crops use rainfall over a longer window, improving land
+    productivity even under limited water.
+  variables_linked: [crop_diversity, soil_organic_carbon, soil_biodiversity, pollution, rainfall]
+  adaptations:
+    WATER_LIMITED: >
+      Choose short-duration, deep-rooted legumes that use residual moisture after the main crop, and prefer
+      strip or relay intercropping over dense mixtures.
+    PH_ACIDIC: >
+      Correct acidity first (legume nodulation is poor below about pH 5.5) or choose acid-tolerant legumes.
+  monitoring:
+    - {indicator: "crop yield", method: "Weigh harvest from treated plots vs an untreated control strip", frequency: "every season"}
+    - {indicator: "soil biological activity", method: "Soil respiration (CO2 burst) or microbial biomass test", frequency: "yearly"}
+    - {indicator: "soil organic carbon", method: "Lab soil test (Walkley-Black or dry combustion), 0–30 cm, same season and sampling points each time", frequency: "every 2–3 years"}
+  projection:
+    metric: soil_organic_carbon
+    kind: relative_pct
+    low: 1
+    high: 7
+    years: 5
+    evidence: ev_mcdaniel_rotation
+    caveat: "meta-analysis mean was +3.6% total soil carbon from adding crops to the rotation"
+  effects:
+    - metric: soil_microbial_biomass
+      direction: increase
+      estimate: "~+20.7% microbial biomass carbon when rotation diversity is increased (meta-analysis)"
+      horizon: medium
+      evidence: ev_mcdaniel_rotation
+    - metric: soil_organic_carbon
+      direction: increase
+      estimate: "~+3.6% total soil carbon from rotation diversification (meta-analysis)"
+      horizon: medium
+      evidence: ev_mcdaniel_rotation
+    - metric: land_productivity
+      direction: increase
+      estimate: "Land equivalent ratio ~1.2 (≈20% more output per unit land) for annual intercrops, higher with staggered timing"
+      horizon: short
+      evidence: ev_yu_intercrop_ler
+    - metric: species_richness
+      direction: increase
+      estimate: "Diversification generally raises biodiversity and pollination without yield penalty (second-order meta-analysis)"
+      horizon: medium
+      evidence: ev_tamburini_diversification
+  tradeoffs:
+    - "Requires different sowing/harvest logistics and markets for the legume."
+
+- id: conservation_ag_mulch
+  name: Residue mulch + reduced tillage + rotation (conservation agriculture package)
+  action: >
+    Stop burning or removing crop residues; leave them as surface mulch, reduce tillage to minimum/zero
+    tillage, and apply it only together with crop rotation — the three components must be adopted as a
+    package.
+  addresses: {WATER_LIMITED: 3, EROSION: 3, SOC_VERY_LOW: 2, SOC_LOW: 2, HEAT_STRESS: 2, MONOCULTURE: 1}
+  suits:
+    land_uses: [cropland]
+  avoid_when: []
+  mechanism: >
+    Surface mulch reduces evaporation and runoff so more rainfall infiltrates (water availability ↑), buffers
+    soil temperature, and feeds surface soil fauna. Reduced disturbance protects aggregates and fungal
+    networks, lowering erosion-driven carbon loss. In dry climates the water benefit is what makes the
+    package pay off.
+  variables_linked: [soil_moisture, rainfall, temperature, soil_organic_carbon, soil_biodiversity, erosion]
+  adaptations:
+    WATER_LIMITED: >
+      This is the first step in semi-arid systems: it conserves water that later diversification (legumes,
+      trees) will need. Where residue is needed for livestock feed, retain at least a partial mulch.
+  monitoring:
+    - {indicator: "soil moisture", method: "Gravimetric samples or a moisture probe at 10 cm and 30 cm, treated vs untreated strip", frequency: "monthly in the growing season"}
+    - {indicator: "residue cover", method: "Line-transect estimate of % ground covered by residue after sowing", frequency: "every season"}
+    - {indicator: "crop yield", method: "Weigh harvest from treated plots vs an untreated control strip", frequency: "every season"}
+    - {indicator: "erosion", method: "Erosion pins or photo points on slopes and field edges", frequency: "after each rainy season"}
+  effects:
+    - metric: crop_yield_stability
+      direction: increase
+      estimate: "No-till with residue retention and rotation matches or exceeds conventional yields in dry, rainfed climates (global meta-analysis); no-till alone reduces yields"
+      horizon: short
+      evidence: ev_pittelkow_ca
+    - metric: soil_moisture
+      direction: increase
+      estimate: "Improved soil water conservation is the main mechanism of the dryland yield benefit"
+      horizon: short
+      evidence: ev_pittelkow_ca
+    - metric: soil_organic_carbon
+      direction: increase
+      estimate: "Topsoil SOC rises, but part is redistribution rather than net gain — treat carbon claims conservatively"
+      horizon: medium
+      evidence: ev_powlson_notill
+  tradeoffs:
+    - "No-till without mulch and rotation can lower yields; weed pressure may rise during transition."
+
+- id: in_situ_water_harvesting
+  name: In-field water harvesting and a farm pond
+  action: >
+    Build contour/graded bunds, field trenches or planting pits to hold rainfall in the field, and dig a
+    lined or unlined farm pond at the lowest point to capture runoff for supplemental irrigation. Vegetate
+    the pond margins with native plants.
+  addresses: {WATER_LIMITED: 3, EROSION: 2, BIODIVERSITY_DECLINE: 1, LOW_HABITAT: 1}
+  suits:
+    land_uses: [cropland, fallow, degraded, pasture]
+  avoid_when: []
+  mechanism: >
+    In semi-arid farms much rainfall is lost as runoff and evaporation; capturing it raises plant-available
+    water, which increases biomass and therefore carbon inputs to soil (water → productivity → SOC). A
+    permanent pond is also new aquatic habitat, adding species (amphibians, dragonflies, birds) that the
+    dry cropland cannot support.
+  variables_linked: [rainfall, soil_moisture, water_availability, soil_organic_carbon, species_richness, habitat_diversity]
+  adaptations: {}
+  monitoring:
+    - {indicator: "stored water", method: "Pond depth gauge; count days of supplemental irrigation supplied", frequency: "monthly"}
+    - {indicator: "soil moisture", method: "Gravimetric samples or a moisture probe at 10 cm and 30 cm, treated vs untreated strip", frequency: "monthly in the growing season"}
+    - {indicator: "aquatic species", method: "Amphibian and dragonfly counts at the pond margin", frequency: "twice a year in the wet season"}
+  effects:
+    - metric: water_productivity
+      direction: increase
+      estimate: "Water harvesting and supplemental irrigation can substantially raise water productivity in rainfed semi-arid farming, where losses — not total rainfall — drive yield gaps"
+      horizon: short
+      evidence: ev_rockstrom_water
+    - metric: species_richness
+      direction: increase
+      estimate: "Ponds support more (and more unique) species regionally than streams or ditches in farmland"
+      horizon: medium
+      evidence: ev_davies_ponds
+  tradeoffs:
+    - "Upfront labour/cost; ponds need desilting and safety fencing; check local rules on groundwater and runoff."
+
+- id: organic_amendments
+  name: Compost / farmyard manure applied to depleted soil
+  action: >
+    Apply well-decomposed compost or farmyard manure every season, targeting the poorest patches first,
+    and combine with residue retention so carbon inputs are sustained.
+  addresses: {SOC_VERY_LOW: 3, SOC_LOW: 2, BIODIVERSITY_DECLINE: 1}
+  suits:
+    land_uses: [cropland, orchard, fallow, degraded]
+  avoid_when: []
+  mechanism: >
+    Organic amendments supply both carbon and a food source for soil organisms, directly raising SOC and
+    soil biological activity; better aggregation increases infiltration.
+  variables_linked: [soil_organic_carbon, soil_biodiversity, soil_moisture]
+  adaptations:
+    HEAT_STRESS: >
+      High temperatures speed decomposition, so apply more stable materials (mature compost) and keep them
+      covered by mulch.
+  monitoring:
+    - {indicator: "soil organic carbon", method: "Lab soil test (Walkley-Black or dry combustion), 0–30 cm, same season and sampling points each time", frequency: "every 2–3 years"}
+    - {indicator: "soil biological activity", method: "Soil respiration (CO2 burst) or microbial biomass test", frequency: "yearly"}
+    - {indicator: "amendment quantity", method: "Record tonnes/ha and source of compost or manure applied", frequency: "every application"}
+  projection:
+    metric: soil_organic_carbon
+    kind: rate_t_ha_yr
+    low: 0.24
+    high: 0.66
+    years: 5
+    evidence: ev_gattinger_organic
+    caveat: "0.45 ± 0.21 t C/ha/yr; depends on a sustained supply of compost or manure"
+  effects:
+    - metric: soil_organic_carbon
+      direction: increase
+      estimate: "~0.18 percentage points higher topsoil SOC and ~0.45 Mg C/ha/yr higher sequestration under organic-input management (meta-analysis)"
+      horizon: medium
+      evidence: ev_gattinger_organic
+  tradeoffs:
+    - "Carbon from imported manure partly relocates carbon rather than creating new sequestration."
+
+- id: cover_crops
+  name: Legume cover crops between cash crops
+  action: >
+    Sow a legume or legume–grass cover crop in the fallow window between cash crops and terminate it before
+    the next crop, leaving residues on the surface.
+  addresses: {SOC_VERY_LOW: 2, SOC_LOW: 2, EROSION: 2, MONOCULTURE: 1, POLLINATOR_DECLINE: 1}
+  suits:
+    land_uses: [cropland, orchard]
+  avoid_when: []
+  mechanism: >
+    Cover crops extend the period of living roots, adding carbon and feeding soil microbes, protect soil from
+    erosion and, if flowering, provide forage for pollinators.
+  variables_linked: [soil_organic_carbon, soil_biodiversity, erosion, pollinators]
+  adaptations:
+    WATER_LIMITED: >
+      Caution: in low-rainfall systems cover crops draw down stored soil water and can cut the next crop's
+      yield. Use only when the fallow receives enough rain to recharge the profile, terminate early, or
+      substitute residue mulch.
+  water_penalty: 2
+  monitoring:
+    - {indicator: "cover crop biomass", method: "Cut and weigh 1 m² quadrats before termination", frequency: "every season"}
+    - {indicator: "soil moisture", method: "Gravimetric samples or a moisture probe at 10 cm and 30 cm, treated vs untreated strip", frequency: "monthly in the growing season"}
+    - {indicator: "soil organic carbon", method: "Lab soil test (Walkley-Black or dry combustion), 0–30 cm, same season and sampling points each time", frequency: "every 2–3 years"}
+  projection:
+    metric: soil_organic_carbon
+    kind: rate_t_ha_yr
+    low: 0.24
+    high: 0.40
+    years: 5
+    evidence: ev_poeplau_cover
+    caveat: "0.32 ± 0.08 t C/ha/yr, mostly from humid temperate trials"
+  effects:
+    - metric: soil_organic_carbon
+      direction: increase
+      estimate: "0.32 ± 0.08 Mg C/ha/yr topsoil sequestration (meta-analysis; mostly humid temperate trials)"
+      horizon: medium
+      evidence: ev_poeplau_cover
+    - metric: soil_moisture
+      direction: decrease
+      estimate: "Can deplete stored soil water in semi-arid systems"
+      horizon: short
+      evidence: ev_unger_cover_water
+  tradeoffs:
+    - "Water use in dry climates; seed and termination costs."
+
+- id: native_flower_margins
+  name: Perennial native flowering margins and hedgerows
+  action: >
+    Convert unproductive field corners, bund edges and 3–5 m strips along field margins into perennial,
+    diverse native flowering vegetation and hedgerows, and leave them undisturbed and unsprayed.
+  addresses: {LOW_HABITAT: 3, POLLINATOR_DECLINE: 3, BIODIVERSITY_DECLINE: 2, MONOCULTURE: 1, PESTICIDE: 1}
+  suits: {}
+  avoid_when: []
+  mechanism: >
+    Margins add floral resources and nesting habitat close to the crop, so pollinators and natural enemies
+    are within foraging range; natural pest control can then substitute for part of the pesticide load.
+  variables_linked: [habitat_diversity, pollinators, species_richness, pollution]
+  adaptations:
+    WATER_LIMITED: "Use drought-adapted native forbs and shrubs; establish with the rains."
+  monitoring:
+    - {indicator: "pollinator visits", method: "10-minute timed flower-visitor counts on the crop and margins", frequency: "weekly during flowering"}
+    - {indicator: "pest and natural-enemy counts", method: "Sticky traps or sweep-net samples in field vs margin", frequency: "monthly in season"}
+    - {indicator: "margin plant diversity", method: "Count flowering native species in fixed 1 m² quadrats", frequency: "yearly"}
+  effects:
+    - metric: pest_control
+      direction: increase
+      estimate: "Flower strips enhanced pest control in adjacent fields; hedgerows and older diverse strips enhanced pollination (quantitative synthesis)"
+      horizon: short
+      evidence: ev_albrecht_strips
+    - metric: pollinator_visitation
+      direction: increase
+      estimate: "Pollinator visitation halves at ~0.6 km from natural habitat, so in-field habitat closes that gap"
+      horizon: short
+      evidence: ev_ricketts_distance
+    - metric: crop_pollination
+      direction: increase
+      estimate: "Wild pollinators raise fruit set independently of honeybees"
+      horizon: short
+      evidence: ev_garibaldi_wild_pollinators
+  tradeoffs:
+    - "Takes a small share of land out of production; benefits for yield are variable."
+
+- id: habitat_share_20pct
+  name: Restore semi-natural habitat toward ~20% of the landscape
+  action: >
+    Map the farm and its surroundings, and plan to bring native or semi-natural habitat (margins, groves,
+    grassland patches, wetlands) up toward about 20% of each square kilometre, prioritising the least
+    productive land.
+  addresses: {LOW_HABITAT: 3, BIODIVERSITY_DECLINE: 3, POLLINATOR_DECLINE: 2, MONOCULTURE: 1}
+  suits: {}
+  avoid_when: []
+  mechanism: >
+    Habitat amount is the dominant control on biodiversity; landscape simplification removes pollinators and
+    natural enemies and with them crop services. Raising habitat share restores the species pool on which
+    farm-scale measures depend.
+  variables_linked: [habitat_diversity, land_use, species_richness, pollinators]
+  adaptations: {}
+  monitoring:
+    - {indicator: "semi-natural habitat share", method: "Map habitat % per km² from satellite imagery (e.g. ESA WorldCover / Google Earth)", frequency: "yearly"}
+    - {indicator: "species richness (birds, butterflies)", method: "Fixed-route transect counts, same route, time of day and season", frequency: "twice a year"}
+    - {indicator: "pollinator visits", method: "10-minute timed flower-visitor counts on the crop and margins", frequency: "weekly during flowering"}
+  effects:
+    - metric: habitat_diversity
+      direction: increase
+      estimate: "At least ~20% native habitat per km² is proposed to sustain nature's contributions in working landscapes"
+      horizon: long
+      evidence: ev_garibaldi_20pct
+    - metric: species_richness
+      direction: increase
+      estimate: "Landscape simplification reduces pollinator and natural-enemy richness and thus crop production — reversing it recovers these"
+      horizon: long
+      evidence: ev_dainese_landscape
+  tradeoffs:
+    - "Needs coordination with neighbours for landscape-scale benefit."
+
+- id: habitat_corridors
+  name: Connect habitat fragments with native vegetation corridors
+  action: >
+    Link remaining patches of native vegetation (groves, riparian strips, sacred groves, grassland remnants)
+    with continuous corridors of native vegetation along drainage lines, bunds or boundaries.
+  addresses: {FRAGMENTED: 3, LOW_HABITAT: 2, BIODIVERSITY_DECLINE: 2, DEFORESTATION: 1}
+  suits: {}
+  avoid_when: []
+  mechanism: >
+    Fragmentation isolates populations and increases edge effects, causing biodiversity losses that grow over
+    time. Corridors restore movement and gene flow between patches, helping species persist.
+  variables_linked: [habitat_fragmentation, land_use, species_richness, habitat_diversity]
+  adaptations: {}
+  monitoring:
+    - {indicator: "wildlife movement", method: "Camera traps or track/sign counts along the corridor", frequency: "each season"}
+    - {indicator: "corridor continuity", method: "Walk and map gaps in the corridor vegetation", frequency: "yearly"}
+    - {indicator: "species richness (birds, butterflies)", method: "Fixed-route transect counts, same route, time of day and season", frequency: "twice a year"}
+  effects:
+    - metric: species_movement
+      direction: increase
+      estimate: "~50% more movement between patches connected by corridors (meta-analysis)"
+      horizon: medium
+      evidence: ev_corridors
+    - metric: species_richness
+      direction: increase
+      estimate: "Avoids fragmentation losses of 13–75% of biodiversity seen in fragmentation experiments"
+      horizon: long
+      evidence: ev_haddad_fragmentation
+  tradeoffs:
+    - "Habitat amount matters more than configuration — corridors complement, not replace, adding habitat."
+
+- id: assisted_natural_regeneration
+  name: Assisted natural regeneration of cleared land
+  action: >
+    On recently cleared or degraded forest land, exclude grazing and fire, protect remnant trees and root
+    stock, and enrich-plant only where natural seed sources are missing — instead of blanket tree planting.
+  addresses: {DEFORESTATION: 3, FRAGMENTED: 2, BIODIVERSITY_DECLINE: 2, EROSION: 1}
+  suits:
+    land_uses: [forest, degraded, fallow]
+  avoid_when: [OPEN_ECOSYSTEM]
+  mechanism: >
+    Where seed sources and root stock remain, natural succession rebuilds native species composition and
+    vegetation structure more successfully and cheaply than planting, restoring habitat and soil cover.
+  variables_linked: [deforestation, species_richness, habitat_diversity, soil_organic_carbon]
+  adaptations: {}
+  monitoring:
+    - {indicator: "regeneration density", method: "Count seedlings and saplings by species in fixed plots", frequency: "yearly"}
+    - {indicator: "canopy cover", method: "Densiometer or drone/satellite canopy estimate", frequency: "yearly"}
+    - {indicator: "species richness (birds, butterflies)", method: "Fixed-route transect counts, same route, time of day and season", frequency: "twice a year"}
+  effects:
+    - metric: species_richness
+      direction: increase
+      estimate: "Natural regeneration outperformed active restoration for biodiversity and vegetation structure (tropical meta-analysis)"
+      horizon: long
+      evidence: ev_crouzeilles_regen
+    - metric: species_richness
+      direction: increase
+      estimate: "Land use has cut local richness by ~13.6% on average; restoring native cover reverses part of this"
+      horizon: long
+      evidence: ev_newbold_landuse
+  tradeoffs:
+    - "Slower visible progress; needs protection from grazing and fire for several years."
+
+- id: restore_open_ecosystem
+  name: Restore native grassland/savanna instead of planting trees
+  action: >
+    If the land was naturally grassland or open savanna, restore native grasses and forbs (rotational rest
+    from grazing, reseeding of native species, controlled management) rather than afforesting it.
+  addresses: {OPEN_ECOSYSTEM: 3, BIODIVERSITY_DECLINE: 2, LOW_HABITAT: 1}
+  suits:
+    land_uses: [pasture, grassland, degraded, fallow]
+  avoid_when: []
+  mechanism: >
+    Open ecosystems host distinctive, often endemic species adapted to sun and fire; trees shade them out and
+    consume water. Restoring the native state recovers these species and deep-rooted grass carbon.
+  variables_linked: [land_use, habitat_diversity, species_richness, water_availability]
+  adaptations: {}
+  monitoring:
+    - {indicator: "native grassland diversity", method: "Count native grass and forb species in fixed 1 m² quadrats", frequency: "yearly after the rains"}
+    - {indicator: "woody encroachment", method: "Photo points / count of invading woody stems", frequency: "yearly"}
+    - {indicator: "species richness (birds, butterflies)", method: "Fixed-route transect counts, same route, time of day and season", frequency: "twice a year"}
+  effects:
+    - metric: species_richness
+      direction: increase
+      estimate: "Avoids biodiversity loss and reduced water yield caused by afforesting naturally open ecosystems"
+      horizon: long
+      evidence: ev_veldman_grassland
+  tradeoffs:
+    - "Carbon gains are below-ground and less visible than tree planting."
+
+- id: avoid_thirsty_plantations
+  name: "Avoid: water-hungry exotic tree plantations (e.g. eucalyptus blocks)"
+  kind: avoid
+  action: >
+    Do not convert cropland or grassland in a water-limited area to block plantations of fast-growing exotic
+    trees for carbon or timber; if trees are wanted, use scattered native species (see agroforestry).
+  addresses: {WATER_LIMITED: 2, OPEN_ECOSYSTEM: 2}
+  suits: {}
+  avoid_when: []
+  mechanism: >
+    Fast-growing plantations transpire large volumes of water, lowering streamflow and groundwater that crops
+    and wildlife depend on, and monoculture blocks add little habitat diversity.
+  variables_linked: [water_availability, rainfall, land_use, habitat_diversity]
+  adaptations: {}
+  monitoring:
+    - {indicator: "groundwater level", method: "Measure depth to water in nearby wells", frequency: "before and after the monsoon"}
+    - {indicator: "land-use change", method: "Check satellite imagery for new block plantations nearby", frequency: "yearly"}
+  effects:
+    - metric: water_availability
+      direction: protect
+      estimate: "Plantations reduced streamflow by roughly half on average, most in dry regions and for eucalypts"
+      horizon: long
+      evidence: ev_jackson_water_carbon
+  tradeoffs: []
+
+- id: ipm_pesticide_reduction
+  name: Integrated pest management with a pesticide-reduction target
+  action: >
+    Set a pesticide-reduction target, spray only on scouting-based thresholds, switch to selective products,
+    never spray flowering crops or margins during pollinator activity, and pair with flowering margins so
+    natural enemies take over part of pest control.
+  addresses: {PESTICIDE: 3, POLLINATOR_DECLINE: 3, BIODIVERSITY_DECLINE: 2, MONOCULTURE: 1}
+  suits: {}
+  avoid_when: []
+  mechanism: >
+    Pesticides reduce pollinators and natural enemies directly; lowering exposure lets their populations
+    recover, which feeds back into better pollination and pest suppression.
+  variables_linked: [pollution, pollinators, species_richness, habitat_diversity, crop_diversity]
+  adaptations:
+    MONOCULTURE: >
+      Monocultures concentrate pests; pair IPM with crop diversification so natural enemies have
+      alternative hosts and pest pressure falls without extra sprays.
+  monitoring:
+    - {indicator: "pesticide use", method: "Log active ingredient (kg/ha) and number of sprays", frequency: "every season"}
+    - {indicator: "pest pressure vs threshold", method: "Weekly scouting counts per plant", frequency: "weekly in season"}
+    - {indicator: "pollinator visits", method: "10-minute timed flower-visitor counts on the crop and margins", frequency: "weekly during flowering"}
+  effects:
+    - metric: pesticide_use
+      direction: decrease
+      estimate: "Pesticide use could be cut ~42% without productivity or profitability loss on 59% of farms studied"
+      horizon: short
+      evidence: ev_lechenet_pesticides
+    - metric: pollinator_abundance
+      direction: increase
+      estimate: "Pesticide exposure is a recognised driver of pollinator decline; reducing it is a recommended response"
+      horizon: medium
+      evidence: ev_ipbes_pollinators
+    - metric: pest_control
+      direction: increase
+      estimate: "Diversification generally enhances natural pest control without reducing yield (second-order meta-analysis)"
+      horizon: medium
+      evidence: ev_tamburini_diversification
+  tradeoffs:
+    - "Requires scouting skills; some seasons may need rescue sprays."
+
+- id: nutrient_buffers
+  name: Nitrogen management + vegetated buffers along water
+  action: >
+    Match nitrogen doses to soil tests and crop demand (split applications, legumes supplying part of N), and
+    keep a vegetated buffer along streams, drains and ponds.
+  addresses: {NUTRIENT_POLLUTION: 3, PH_ACIDIC: 2, BIODIVERSITY_DECLINE: 1}
+  suits: {}
+  avoid_when: []
+  mechanism: >
+    Excess nitrogen leaches into water and deposits on nearby habitat, favouring a few nutrient-loving plants
+    and reducing plant diversity; buffers intercept runoff before it reaches water bodies. Surplus
+    ammonium-based nitrogen also acidifies the soil, so cutting it treats a cause of low pH, not just the symptom.
+  variables_linked: [pollution, water_quality, soil_ph, species_richness]
+  adaptations:
+    PH_ACIDIC: >
+      On already acidic soil, prefer nitrate-based or slow-release forms and legume nitrogen over urea/ammonium
+      sources, and lime to offset the acidity that past applications created.
+  monitoring:
+    - {indicator: "nitrate in water", method: "Nitrate test strips in drains, ponds or wells", frequency: "quarterly"}
+    - {indicator: "nitrogen applied", method: "Record N (kg/ha) by source and date", frequency: "every application"}
+    - {indicator: "soil pH", method: "Soil pH in 1:2.5 soil:water suspension, same sampling points", frequency: "yearly"}
+  effects:
+    - metric: nitrogen_runoff
+      direction: decrease
+      estimate: "Riparian buffers remove substantial nitrogen; wider buffers are generally more effective (meta-analysis)"
+      horizon: short
+      evidence: ev_mayer_buffers
+    - metric: plant_species_richness
+      direction: protect
+      estimate: "Plant richness declines steadily with nitrogen deposition"
+      horizon: long
+      evidence: ev_stevens_nitrogen
+    - metric: soil_ph
+      direction: protect
+      estimate: "High N fertiliser inputs were the main driver of significant cropland acidification over ~two decades"
+      horizon: long
+      evidence: ev_guo_acidification
+  tradeoffs: []
+
+- id: lime_or_biochar_acidic
+  name: Correct soil acidity (lime, or biochar on acidic sandy soils)
+  action: >
+    Test exchangeable acidity and apply agricultural lime to reach about pH 6; on acidic, coarse soils,
+    consider biochar (from local residues, not burning in the open) as a combined liming and carbon amendment.
+  addresses: {PH_ACIDIC: 3, SOC_VERY_LOW: 1, SOC_LOW: 1}
+  suits: {}
+  requires: [PH_ACIDIC]
+  avoid_when: [PH_ALKALINE]
+  mechanism: >
+    Raising pH reduces aluminium toxicity and restores nutrient availability and legume nodulation, which
+    lets diversified, legume-based systems and soil biota establish.
+  variables_linked: [soil_ph, soil_biodiversity, soil_organic_carbon, crop_diversity]
+  adaptations: {}
+  monitoring:
+    - {indicator: "soil pH", method: "Soil pH in 1:2.5 soil:water suspension, same sampling points", frequency: "yearly"}
+    - {indicator: "legume nodulation", method: "Dig 10 legume plants and score pink, active nodules", frequency: "each legume season"}
+    - {indicator: "crop yield", method: "Weigh harvest from treated plots vs an untreated control strip", frequency: "every season"}
+  effects:
+    - metric: crop_productivity
+      direction: increase
+      estimate: "Biochar raised productivity ~10% on average, most in acidic and coarse soils (meta-analysis)"
+      horizon: short
+      evidence: ev_jeffery_biochar
+    - metric: nutrient_availability
+      direction: increase
+      estimate: "Nutrient availability and legume nodulation improve as pH rises above ~5.5"
+      horizon: short
+      evidence: ev_ph_nutrients
+  tradeoffs: []
+
+- id: gypsum_sodic
+  name: Reclaim alkaline/sodic soil with gypsum and salt-tolerant cover
+  action: >
+    Test for sodicity (ESP/SAR) and, if sodic, apply gypsum with leaching, keep the surface covered with
+    salt-tolerant crops or grasses, and check irrigation water quality.
+  addresses: {PH_ALKALINE: 3, WATER_LIMITED: 1, EROSION: 1}
+  suits: {}
+  requires: [PH_ALKALINE]
+  avoid_when: [PH_ACIDIC]
+  mechanism: >
+    Calcium from gypsum displaces sodium, restoring soil structure and infiltration, which is a precondition
+    for root growth, soil biota and any later diversification. Better infiltration also means more of the
+    scarce rainfall enters the soil instead of running off a dispersed, crusted surface.
+  variables_linked: [soil_ph, soil_moisture, soil_biodiversity, rainfall]
+  adaptations:
+    WATER_LIMITED: >
+      Leaching needs water: time gypsum application just before the rainy season and pair it with in-field
+      water harvesting so rainfall does the leaching.
+  monitoring:
+    - {indicator: "soil pH", method: "Soil pH in 1:2.5 soil:water suspension, same sampling points", frequency: "yearly"}
+    - {indicator: "sodicity and infiltration", method: "Soil ESP/SAR test; single-ring infiltration test", frequency: "yearly"}
+    - {indicator: "crop yield", method: "Weigh harvest from treated plots vs an untreated control strip", frequency: "every season"}
+  effects:
+    - metric: infiltration
+      direction: increase
+      estimate: "Calcium amendments plus leaching are the standard reclamation method for sodium-affected soils"
+      horizon: medium
+      evidence: ev_sodicity_gypsum
+    - metric: nutrient_availability
+      direction: increase
+      estimate: "Phosphorus and micronutrient availability are low above ~pH 8.5 and improve on reclamation"
+      horizon: medium
+      evidence: ev_ph_nutrients
+  tradeoffs:
+    - "Leaching needs water — difficult where rainfall is low."
