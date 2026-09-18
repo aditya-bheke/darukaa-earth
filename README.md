@@ -8,7 +8,7 @@ recommendations** to improve biodiversity.
 > to recommend. Hybrid retrieval supplies the evidence, the LLM explains it for the specific site, and a
 > verifier removes anything the evidence doesn't support. With the LLM switched off, the system still works.
 
-* **Live demo:** `<add your deployed URL>` — the single-page app is at `/app`, the API docs at `/docs`
+* **Live demo:** `https://darukaa-earth-zd88.onrender.com/app/` — the single-page app is at `/app`, the API docs at `/docs`
 * **Two front ends:** a fluid single-page app (FastAPI-served, gesture-driven) and a Streamlit console
 * **Docs:** [ARCHITECTURE.md](ARCHITECTURE.md) (how it works) · [DECISIONS.md](DECISIONS.md) (why, and change log) · [TESTING.md](TESTING.md) (what is tested, and how)
 
@@ -155,7 +155,7 @@ Requirements: Python 3.10+ (tested on 3.10 and 3.11). Internet access is needed 
 the ~130 MB embedding model and, optionally, to call Groq and the geo APIs.
 
 ```bash
-git clone <your-repo-url>
+git clone https://darukaa-earth-zd88.onrender.com/app/
 cd Darukaa.Earth
 python -m venv .venv
 ```
