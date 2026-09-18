@@ -5,7 +5,9 @@ services:
     name: darukaa-earth
     runtime: python
     plan: free
-    buildCommand: pip install -r requirements.txt && LLM_PROVIDER=none python -m darukaa.kb.build
+    # The PDF fetch is best-effort: if a publisher is unreachable the build still succeeds and the
+    # app runs on the curated corpus alone.
+    buildCommand: pip install -r requirements.txt && (python scripts/fetch_sources.py || true) && LLM_PROVIDER=none python -m darukaa.kb.build
     startCommand: uvicorn api:app --host 0.0.0.0 --port $PORT
     healthCheckPath: /health
     envVars:
